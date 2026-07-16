@@ -5,5 +5,11 @@ public enum AttachmentEntityType
   Center,
   Ads,
   User,
-  Transaction
+  OurSpecialist,
+  Testimonial,
+  Faq,
+  Service,
+  BeforeGallery,
+  AfterGallery,
+  BlogPost
 }

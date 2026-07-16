@@ -1,7 +1,8 @@
-using GenericRepository.Interfaces;
 using GenericRepository.Repositories;
 using LapisApi.App.BackgroundJobs.Interfaces;
 using LapisApi.App.BackgroundJobs.Repository;
+using LapisApi.App.BlogPosts.Interfaces;
+using LapisApi.App.BlogPosts.Repository;
 using LapisApi.App.Centers.Interfaces;
 using LapisApi.App.Centers.Repository;
 using LapisApi.App.Cities.Interfaces;
@@ -9,13 +10,26 @@ using LapisApi.App.Comments.Interfaces;
 using LapisApi.App.Comments.Repository;
 using LapisApi.App.Coupons.Interfaces;
 using LapisApi.App.Coupons.Repository;
+using LapisApi.App.FAQs.Interfaces;
+using LapisApi.App.FAQs.Repository;
+using LapisApi.App.Galleries.Interfaces;
+using LapisApi.App.Galleries.Repository;
+using LapisApi.App.OurSpecialists.Interfaces;
+using LapisApi.App.OurSpecialists.Repository;
+using LapisApi.App.Services.Interfaces;
+using LapisApi.App.Services.Repository;
 using LapisApi.App.Settings.Interfaces;
 using LapisApi.App.Settings.Repository;
+using LapisApi.App.Testimonials.Interfaces;
+using LapisApi.App.Testimonials.Repository;
 using LapisApi.App.Users.Model;
-using LapisApi.Data;
+using LapisApi.App.YouTubeGalleries.Interfaces;
+using LapisApi.App.YouTubeGalleries.Repository;
 using LapisApi.Data.Interfaces;
 using LapisApi.Interfaces.Countries;
-namespace LapisApi.Repository.Generic;
+using LapisApi.Repository;
+using Microsoft.EntityFrameworkCore.Storage;
+namespace LapisApi.Data.Repository;
 
 public class UnitOfWork : IUnitOfWork
 {
@@ -32,6 +46,13 @@ public class UnitOfWork : IUnitOfWork
     Coupons = new CouponRepository(_context);
     Comments = new CommentRepository(_context);
     BackgroundJobs = new BackgroundJobRepository(_context);
+    OurSpecialists = new OurSpecialistsRepository(_context);
+    Testimonials = new TestimonialsRepository(_context);
+    FAQs = new FAQsRepository(_context);
+    Services = new ServicesRepository(_context);
+    Galleries = new GalleriesRepository(_context);
+    YouTubeGalleries = new YouTubeGalleriesRepository(_context);
+    BlogPosts = new BlogPostsRepository(_context);
   }
 
   public ICenterRepository Centers { get; private set; }
@@ -43,10 +64,28 @@ public class UnitOfWork : IUnitOfWork
   public IGenericRepository<ApplicationUser> Users { get; private set; }
 
   public ICommentRepository Comments { get; private set; }
+  public IOurSpecialistsRepository OurSpecialists { get; }
 
+  public ITestimonialsRepository Testimonials { get; }
+
+  public IFAQsRepository FAQs { get; }
+
+  public IServicesRepository Services { get; }
+  
+  public IGalleriesRepository Galleries { get; }
+  
+  public IYouTubeGalleriesRepository YouTubeGalleries { get; }
   public IBackgroundJobRepository BackgroundJobs { get; }
   
+  public IBlogPostsRepository BlogPosts  { get; }
+
   public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
 
   public void Dispose() => _context.Dispose();
+
+  public async Task<IDbContextTransaction> BeginTransactionAsync()
+  {
+    return await _context.Database.BeginTransactionAsync();
+  }
+
 }

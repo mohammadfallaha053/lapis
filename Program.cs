@@ -6,8 +6,8 @@ using Microsoft.Extensions.FileProviders;
 using LapisApi.Extensions;
 using LapisApi.Filter;
 using LapisApi.Middleware;
-using LapisApi.Services.Seed;
 using LapisApi.App.BackgroundJobs.Scheduler;
+using LapisApi.Shared.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCustomServices();
@@ -29,7 +29,7 @@ builder.Services.AddScoped<ActiveUserAuthorizationFilter>();
 builder.Services.AddControllers(options =>
   {
     options.Filters.Add<ValidationFilter>();
-    options.Filters.Add<AuthorizeByEnvironmentFilter>();
+    //options.Filters.Add<AuthorizeByEnvironmentFilter>();
   }
 );
 

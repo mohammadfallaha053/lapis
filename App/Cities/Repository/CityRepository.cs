@@ -1,5 +1,4 @@
-﻿using GenericRepository.Interfaces;
-using GenericRepository.Repositories;
+﻿using GenericRepository.Repositories;
 using Microsoft.EntityFrameworkCore;
 using LapisApi.App.Cities.Interfaces;
 using LapisApi.Data;

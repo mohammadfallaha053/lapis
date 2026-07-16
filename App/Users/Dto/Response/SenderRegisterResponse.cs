@@ -1,4 +1,4 @@
-namespace LapisApi.Dto.Client;
+namespace LapisApi.App.Users.Dto.Response;
 
 public class ClientRegisterResponse
 {

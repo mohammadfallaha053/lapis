@@ -54,7 +54,7 @@ function generateFeature(featureName) {
 
 const featureArg = process.argv[2];
 if (!featureArg) {
-    console.error('❌ يرجى تمرير اسم الفيتشر: node generate-feature.js Comments');
+    console.error('❌ يرجى تمرير اسم الفيتشر: node gf.js Comments');
     process.exit(1);
 }
 

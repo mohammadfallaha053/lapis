@@ -1,4 +1,4 @@
-﻿using GenericRepository.Interfaces;
+﻿using LapisApi.Data.Interfaces;
 using LapisApi.Data.Models;
 namespace LapisApi.App.Cities.Interfaces
 {

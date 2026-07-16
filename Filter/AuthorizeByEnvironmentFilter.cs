@@ -18,17 +18,7 @@ public class AuthorizeByEnvironmentFilter : IAuthorizationFilter
     "/api/auth/confirm-email",
     "/api/auth/send-otp",
     "/api/auth/verify-otp",
-    "/api/payment/paypal/return",
-    "/api/payment/paypal/cancel",
-    "/api/sender/register",
-    "/api/sender/get-slider-comments",
-    "/api/sender/get-ads",
-    "/api/sender/get-commission-table",
     "/api/user/contact-us",
-    "/api/sender/get-centers",
-    "/api/sender/get-cities",
-    "/api/sender/get-countries",
-    "/api/sender/get-settings",
   };
 
   public AuthorizeByEnvironmentFilter(IHostEnvironment env)

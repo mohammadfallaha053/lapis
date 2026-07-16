@@ -1,7 +1,6 @@
-﻿using System.Linq.Expressions;
-using LapisApi.Repositories.Helpers;
-
-namespace GenericRepository.Interfaces
+﻿using LapisApi.Repositories.Helpers;
+using System.Linq.Expressions;
+namespace LapisApi.Data.Interfaces
 {
   public interface IGenericRepository<T> where T : class
   {
@@ -26,7 +25,7 @@ namespace GenericRepository.Interfaces
       Func<IQueryable<T>, IQueryable<T>>? queryBuilder = null
     );
 
-    Task AddAsync(T entity);
+    Task<T> AddAsync(T entity);
 
     Task UpdateAsync(T entity);
 

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GenericRepository.Interfaces;
 using JWT53.MyEnum;
 using LinqKit;
 using Microsoft.EntityFrameworkCore;

@@ -1,5 +1,5 @@
-﻿using GenericRepository.Interfaces;
-using LapisApi.App.BackgroundJobs.Model;
+﻿using LapisApi.App.BackgroundJobs.Model;
+using LapisApi.Data.Interfaces;
 using LapisApi.Data.Models;
 namespace LapisApi.App.BackgroundJobs.Interfaces
 {

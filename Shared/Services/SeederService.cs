@@ -1,8 +1,7 @@
-using Microsoft.AspNetCore.Identity;
 using LapisApi.App.Auth.Enums;
 using LapisApi.App.Users.Model;
-using LapisApi.MyEnum;
-namespace LapisApi.Services.Seed;
+using Microsoft.AspNetCore.Identity;
+namespace LapisApi.Shared.Services;
 
 public static class SeederService
 {

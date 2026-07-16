@@ -7,8 +7,8 @@ public interface IFileService
 {
 
   Task<Result<FileUploadResponse>> UploadTempFileAsync(IFormFile file);
-  Task<Result<object>> AttachFileAsync(int fileId, AttachmentEntityType entityType, string entityId);
-  Task<Result<object>> AttachFilesAsync(List<int> fileIds, AttachmentEntityType entityType, string entityId);
+  Task<Result<FileResponse>> AttachFileAsync(int fileId, AttachmentEntityType entityType, string entityId);
+  Task<Result<List<FileResponse>>> AttachFilesAsync(List<int> fileIds, AttachmentEntityType entityType, string entityId);
 
   Task<Result<object>> ClearTempFilesAsync();
   Task<List<FileResponse>> GetFilesByEntityAsync(
@@ -21,9 +21,15 @@ public interface IFileService
     AttachmentEntityType entityType
   );
 
-  Task<Result<object>> ProcessFileUpdateAsync(
+  Task<Result<FileResponse?>> ProcessFileUpdateAsync(
     int? newFileId,
     int? oldFileId,
+    AttachmentEntityType entityType,
+    string entityId
+  );
+
+  Task<Result<FileResponse?>> ProcessSingleFileUpdateAsync(
+    int? newFileId,
     AttachmentEntityType entityType,
     string entityId
   );
@@ -32,5 +38,9 @@ public interface IFileService
 
   Task<Result<object>> DeleteFilesAsync(List<int> fileIds);
 
+  Task<Dictionary<string, FileResponse>> GetFirstFilesByEntitiesAsync(
+    List<string> entityIds,
+    AttachmentEntityType entityType
+  );
 
 }

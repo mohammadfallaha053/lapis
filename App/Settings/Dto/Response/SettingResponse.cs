@@ -6,10 +6,6 @@ public class SettingResponse
   public string? Email { get; set; } 
   public string? Address { get; set; }
   
-  public decimal PayPalCommissionAmount { get; set; }
-  public decimal CreditCommissionAmount { get; set; }
-  public decimal DebitCommissionAmount { get; set; }
-    
   public string? AboutUs_Ar { get; set; } 
   public string? AboutUs_En { get; set; } 
     
@@ -21,4 +17,14 @@ public class SettingResponse
   public string? TwitterUrl { get; set; }
   public string? YoutubeUrl { get; set; }
   public string? TiktokUrl { get; set; }
+  
+  public double? Latitude { get; set; }
+  public double? Longitude { get; set; }
+  
+  public bool FAQsTabToggle { get; set; } = true;
+  public bool ServicesTabToggle { get; set; } = true;
+  public bool GalleriesTabToggle { get; set; } = true;
+  public bool YouTubeGalleriesTabToggle { get; set; } = true;
+  public bool TestimonialsTabToggle { get; set; } = true;
+  public bool OurSpecialistsTabToggle { get; set; } = false;
 }
